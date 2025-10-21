@@ -37,6 +37,6 @@ class ViewTest {
         testList.get(0).addScore();
         testList.get(1).addScore();
         testView.printResultOfRace(testList);
-        assertThat(outputStreamCaptor.toString().trim()).contains("실행결과", "test1 : --", "test2 : -");
+        assertThat(outputStreamCaptor.toString().trim()).contains("실행 결과", "test1 : --", "test2 : -");
     }
 }
