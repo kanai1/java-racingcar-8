@@ -15,4 +15,8 @@ public class Model {
             this.participants.add(new Car(name));
         }
     }
+
+    public List<Car> getParticipants() {
+        return participants;
+    }
 }
