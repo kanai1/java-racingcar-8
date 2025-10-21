@@ -1,6 +1,7 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
+import java.util.ArrayList;
 import java.util.List;
 
 public class View {
@@ -31,5 +32,13 @@ public class View {
             System.out.printf("%s : %s\n", participant.getName(), "-".repeat(participant.getScore()));
         }
         System.out.println();
+    }
+
+    public void printWinners(List<Car> winners) {
+        List<String> winnersName = new ArrayList<String>();
+        for (Car winner: winners) {
+            winnersName.add(winner.getName());
+        }
+        System.out.printf("최종 우승자 : %s\n", String.join(", ", winnersName));
     }
 }
