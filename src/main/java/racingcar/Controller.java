@@ -50,7 +50,19 @@ public class Controller {
     }
 
     public void run() {
+        List<Car> participants;
+        List<String> winners;
+
         initGame();
+
+        for(int i = 0; i < timesToTry; i++) {
+            model.progressRace();
+            participants = model.getParticipants();
+            view.printResultOfRace(participants);
+        }
+
+        winners = model.getWinner();
+        view.printWinners(winners);
     }
 
     public boolean verifyTimesToTry(String input) {
