@@ -23,11 +23,28 @@ public class ControllerTest {
         );
     }
 
+    static Stream<Arguments> argumentForVerifyTimesToTryTest() {
+        return Stream.of(
+                Arguments.of("5", true),
+                Arguments.of("0", false), // 반복횟수는 1 이상이여야함
+                Arguments.of("21", false), // 반복횟수는 20 이하여야함
+                Arguments.of("한번", false) // 반복횟수는 숫자로 이루어져야함
+        );
+    }
+
     @ParameterizedTest(name = "{displayName}(names = {0}, expected = {1})")
     @MethodSource("argumentForVerifyNameTest")
     @DisplayName("이름 검증 테스트")
     public void verifyNameTest(List<String> names, boolean expected) {
         Controller testController = new Controller();
         assertThat(testController.verifyName(names)).isEqualTo(expected);
+    }
+
+    @ParameterizedTest(name = "{displayName}(input = {0}, expected = {1})")
+    @MethodSource("argumentForVerifyTimesToTryTest")
+    @DisplayName("반복 횟수 검증 테스트")
+    public void verifyTimesToTryTest(String input, boolean expected) {
+        Controller testController = new Controller();
+        assertThat(testController.verifyTimesToTry(input)).isEqualTo(expected);
     }
 }
