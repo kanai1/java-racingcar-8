@@ -17,6 +17,7 @@ public class ControllerTest {
                 Arguments.of(List.of("name"), false), // 이름 목록이 2개 이상이여야 함
                 Arguments.of(List.of("name", "abcdef"), false), // 이름이 5글자 이하여야함
                 Arguments.of(List.of("name", "ab cd"), false), // 이름에 공백이 포함되면 안됨
+                Arguments.of(List.of("name", ""), false), // 이름이 비어있으면 안됨
                 Arguments.of(List.of("n1", "n2", "n3", "n4", "n5", "n6", "n7", "n8", "n9", "n10", "n11"), false), // 이름 목록이 10개 이하여야 함
                 Arguments.of(List.of("a", "name", "a", "name"), false) // 이름이 중복되어선 안됨
         );
