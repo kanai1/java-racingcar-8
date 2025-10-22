@@ -1,5 +1,6 @@
 package racingcar;
 
+import camp.nextstep.edu.missionutils.Randoms;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,5 +19,13 @@ public class Model {
 
     public List<Car> getParticipants() {
         return participants;
+    }
+
+    public void progressRace() {
+        for (Car participant: this.participants) {
+            if(Randoms.pickNumberInRange(0, 9) >= 4) {
+                participant.addScore();
+            }
+        }
     }
 }
