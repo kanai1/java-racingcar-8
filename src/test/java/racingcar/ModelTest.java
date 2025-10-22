@@ -3,7 +3,6 @@ package racingcar;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatList;
 
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.*;
 import camp.nextstep.edu.missionutils.test.Assertions;
@@ -32,7 +31,8 @@ public class ModelTest {
     static Stream<Arguments> argumentsForTestGetWinner() {
         return Stream.of(
                 Arguments.of(2, 1, List.of("test1")),
-                Arguments.of(2, 2, List.of("test1", "test2"))
+                Arguments.of(2, 2, List.of("test1", "test2")),
+                Arguments.of(2, 3, List.of("test2"))
         );
     }
 
