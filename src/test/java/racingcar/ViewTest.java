@@ -46,9 +46,7 @@ class ViewTest {
     @DisplayName("최종 우승자가 다수인 경우를 출력하는 테스트")
     void printWinnersTest1() {
         View testView = new View();
-        List<Car> testList = new ArrayList<Car>();
-        testList.add(new Car("test1"));
-        testList.add(new Car("test2"));
+        List<String> testList = List.of("test1", "test2");
         testView.printWinners(testList);
         assertEquals("최종 우승자 : test1, test2", outputStreamCaptor.toString().trim());
     }
@@ -57,8 +55,7 @@ class ViewTest {
     @DisplayName("최종 우승자가 1명인 경우를 출력하는 테스트")
     void printWinnersTest2() {
         View testView = new View();
-        List<Car> testList = new ArrayList<Car>();
-        testList.add(new Car("test1"));
+        List<String> testList = List.of("test1");
         testView.printWinners(testList);
         assertEquals("최종 우승자 : test1", outputStreamCaptor.toString().trim());
     }
