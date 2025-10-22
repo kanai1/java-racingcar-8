@@ -28,4 +28,21 @@ public class Model {
             }
         }
     }
+
+    public List<String> getWinner() {
+        List<String> winners = new ArrayList<>();
+        int maxScore = -1;
+
+        for(Car participant: participants) {
+            if (participant.getScore() == maxScore) {
+                winners.add(participant.getName());
+            } else if (participant.getScore() > maxScore) {
+                maxScore = participant.getScore();
+                winners.clear();
+                winners.add(participant.getName());
+            }
+        }
+
+        return winners;
+    }
 }
