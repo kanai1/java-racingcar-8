@@ -1,12 +1,15 @@
 package racingcar;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
+
 
 public class Controller {
 
     private Model model;
     private View view;
+    private int timesToTry;
 
     public Controller() {
         model = new Model();
@@ -14,7 +17,18 @@ public class Controller {
     }
 
     public void initGame() {
+        String input = view.getNameOfCar();
+        List<String> names = Arrays.stream(input.split(",")).toList();
+        if (!verifyName(names)) {
+            throw new IllegalArgumentException();
+        }
+        model.setNameOfParticipants(names);
 
+        input = view.getTimesToTry();
+        if(!verifyTimesToTry(input)) {
+            throw new IllegalArgumentException();
+        }
+        timesToTry = Integer.parseInt(input);
     }
 
     public boolean verifyName(List<String> names) {
@@ -36,5 +50,11 @@ public class Controller {
     }
 
     public void run() {
+        initGame();
+    }
+
+    public boolean verifyTimesToTry(String input) {
+        // Todo: 시도할 횟수 검증 구현
+        return true;
     }
 }
