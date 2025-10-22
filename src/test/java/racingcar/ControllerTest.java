@@ -28,7 +28,8 @@ public class ControllerTest {
                 Arguments.of("5", true),
                 Arguments.of("0", false), // 반복횟수는 1 이상이여야함
                 Arguments.of("21", false), // 반복횟수는 20 이하여야함
-                Arguments.of("한번", false) // 반복횟수는 숫자로 이루어져야함
+                Arguments.of("한번", false), // 반복횟수는 숫자로 이루어져야함
+                Arguments.of("1번", false)
         );
     }
 
