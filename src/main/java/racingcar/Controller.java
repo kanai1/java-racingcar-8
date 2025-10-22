@@ -54,7 +54,14 @@ public class Controller {
     }
 
     public boolean verifyTimesToTry(String input) {
-        // Todo: 시도할 횟수 검증 구현
+        try {
+            int parsed = Integer.parseInt(input);
+            if (parsed < 1 || parsed > 20) {
+                return false;
+            }
+        } catch (NumberFormatException e) {
+            return false;
+        }
         return true;
     }
 }
