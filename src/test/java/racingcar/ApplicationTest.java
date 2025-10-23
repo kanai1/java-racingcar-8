@@ -4,7 +4,6 @@ import camp.nextstep.edu.missionutils.test.NsTest;
 import java.util.List;
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
@@ -19,14 +18,22 @@ class ApplicationTest extends NsTest {
     private static final int MOVING_FORWARD = 4;
     private static final int STOP = 3;
 
-    @Test
-    void 기능_테스트() {
+    static Stream<Arguments> argumentForApplicationTest() {
+        return Stream.of(
+                Arguments.of("pobi,woni", "1", new int[]{MOVING_FORWARD, STOP}, List.of("pobi : -", "woni : ", "최종 우승자 : pobi")),
+                Arguments.of("pobi,woni", "1", new int[]{MOVING_FORWARD, MOVING_FORWARD}, List.of("pobi : -", "woni : -", "최종 우승자 : pobi, woni"))
+        );
+    }
+
+    @ParameterizedTest(name = "{displayName}(Names = {0}, TimesToTry = {1}, randomNumber = {2}, expected = {3})")
+    @DisplayName("기능 테스트")
+    @MethodSource("argumentForApplicationTest")
+    void 기능_테스트(String inputNames, String inputTimesToTry, int[] randomNumber, List<String> expected) {
         assertRandomNumberInRangeTest(
             () -> {
-                run("pobi,woni", "1");
-                assertThat(output()).contains("pobi : -", "woni : ", "최종 우승자 : pobi");
-            },
-            MOVING_FORWARD, STOP
+                run(inputNames, inputTimesToTry);
+                assertThat(output()).contains(expected);
+            }, randomNumber[0], randomNumber[1]
         );
     }
 
