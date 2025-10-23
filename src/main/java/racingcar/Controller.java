@@ -66,7 +66,7 @@ public class Controller {
             view.printResultOfRace(participants);
         }
 
-        winners = model.getWinner();
+        winners = model.getWinners();
         view.printWinners(winners);
     }
 

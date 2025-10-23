@@ -76,6 +76,6 @@ public class ModelTest {
         for (int i = 0; i < score2; i++) {
             testModel.getParticipants().get(1).addScore();
         }
-        assertThatList(testModel.getWinner()).isEqualTo(expected);
+        assertThatList(testModel.getWinners()).isEqualTo(expected);
     }
 }

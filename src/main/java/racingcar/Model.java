@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Model {
-    private List<Car> participants;
+    private final List<Car> participants;
 
     public Model() {
         this.participants = new ArrayList<>();
@@ -29,7 +29,7 @@ public class Model {
         }
     }
 
-    public List<String> getWinner() {
+    public List<String> getWinners() {
         List<String> winners = new ArrayList<>();
         int maxScore = -1;
 
