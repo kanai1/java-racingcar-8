@@ -7,13 +7,18 @@ import java.util.List;
 
 public class Controller {
 
-    private Model model;
-    private View view;
+    private final Model model;
+    private final View view;
     private int timesToTry;
 
     public Controller() {
         model = new Model();
         view = new View();
+    }
+
+    public Controller(Model model, View view) {
+        this.model = model;
+        this.view = view;
     }
 
     public void initGame() {
