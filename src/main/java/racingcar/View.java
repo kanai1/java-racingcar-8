@@ -1,7 +1,6 @@
 package racingcar;
 
 import camp.nextstep.edu.missionutils.Console;
-import java.util.ArrayList;
 import java.util.List;
 
 public class View {
@@ -23,18 +22,18 @@ public class View {
     }
 
     public void printResultOfRace(List<Car> participants) {
-        if (this.isFirstPrintResultOfRace) {
+        if (isFirstPrintResultOfRace) {
             System.out.println("실행 결과");
-            this.isFirstPrintResultOfRace = false;
+            isFirstPrintResultOfRace = false;
         }
 
         for (Car participant: participants) {
-            System.out.printf("%s : %s\n", participant.getName(), "-".repeat(participant.getScore()));
+            System.out.println(participant.getName() + " : " + "-".repeat((participant.getScore())));
         }
         System.out.println();
     }
 
     public void printWinners(List<String> winners) {
-        System.out.printf("최종 우승자 : %s\n", String.join(", ", winners));
+        System.out.println("최종 우승자 : " +  String.join(", ", winners));
     }
 }
